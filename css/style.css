@@ -1,0 +1,13 @@
+#canvas {
+	border: 2px solid;
+	border-radius: 12px;
+	position: "absolute";
+	top: "0px";
+	left: "0px";
+	background-color: rgb(200, 200, 240);
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+}
+.niceDiv {
+	text-align: center;
+}
