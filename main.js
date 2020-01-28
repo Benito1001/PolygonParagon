@@ -2,7 +2,6 @@ import { toPixels } from "./js/scaleLogic.js"
 import { average } from "./js/utils.js";
 import { roadCurrentX, addRoadSegment } from "./js/addRoadSegment.js";
 import player from "./js/player.js";
-import Point from "./js/point.js";
 
 var bodyDiv = document.getElementsByClassName('bodyDiv')[0];
 var canvas = document.getElementById('canvas');
@@ -141,11 +140,3 @@ window.addEventListener('touchstart', _event => {
 });
 window.addEventListener('touchend', _event => player.keys["KeyS"] = false);
 document.body.addEventListener('touchmove', event => event.preventDefault(), {passive: false});
-/*window.addEventListener('contextmenu', (event) =>
-	e.preventDefault();
-});
-*/
-
-export function debugDraw(point) {
-	entities.push(new Point(point));
-}
