@@ -1,23 +1,19 @@
 import { toPixels } from "./js/scaleLogic.js"
-import { randomInt, average } from "./js/utils.js";
+import { average } from "./js/utils.js";
 import { roadCurrentX, addRoadSegment } from "./js/addRoadSegment.js";
-import Vector from "./js/vector.js";
 import player from "./js/player.js";
 import Point from "./js/point.js";
-import Polygon from "./js/polygon.js";
-import FractalTree from "./js/fractalTree.js";
-import FuelCan from "./js/fuelCan.js";
 
+var bodyDiv = document.getElementsByClassName('bodyDiv')[0];
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 ctx.imageSmoothingEnabled = false;
 
-var headerHeight = 2*document.getElementsByClassName('headerDiv')[0].clientHeight;
 
 window.addEventListener("resize",resize);
 function resize() {
-	canvas.width = innerWidth-5;
-	canvas.height = innerHeight-headerHeight*1.3;
+	canvas.width = bodyDiv.offsetWidth;
+	canvas.height = bodyDiv.offsetHeight;
 }
 resize();
 
@@ -35,7 +31,7 @@ entities.push(player);
 
 addRoadSegment(1, entities);
 
-window.addEventListener("load", event => requestAnimationFrame(runGame));
+window.addEventListener("load", _event => requestAnimationFrame(runGame));
 
 function runGame(currentTime) {
 	if (continueGame) {
@@ -134,17 +130,17 @@ function runGame(currentTime) {
 	}
 }
 
-window.addEventListener('keydown', (event) => player.keys[event.code] = true);
-window.addEventListener('keyup', (event) => player.keys[event.code] = false);
+window.addEventListener('keydown', event => player.keys[event.code] = true);
+window.addEventListener('keyup', event => player.keys[event.code] = false);
 
-window.addEventListener('touchstart', (event) => {
+window.addEventListener('touchstart', _event => {
 	player.keys["KeyS"] = true;
 	if (!continueGame) {
 		window.location.reload();
 	}
 });
-window.addEventListener('touchend', (event) => player.keys["KeyS"] = false);
-document.body.addEventListener('touchmove', (event) => event.preventDefault(), {passive: false});
+window.addEventListener('touchend', _event => player.keys["KeyS"] = false);
+document.body.addEventListener('touchmove', event => event.preventDefault(), {passive: false});
 /*window.addEventListener('contextmenu', (event) =>
 	e.preventDefault();
 });
