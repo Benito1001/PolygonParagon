@@ -21,6 +21,7 @@ export default class FractalTree {
 		this.dead = false;
 		this.boundingBox = new Rectangle(this.pos.x, this.pos.y, this.width, this.height);
 	}
+
 	draw(ctx) {
 		let canvasPos = this.pos.toPixels();
 		// Tree is drawn upside down on the fake canvas, so it must be rotated. Therefore Math.PI;
@@ -30,6 +31,7 @@ export default class FractalTree {
 		ctx.drawImage(this.fakeCanvas, -(this.width*toPixels)/2, 0, this.width*toPixels, this.height*toPixels);
 		ctx.restore();
 	}
+
 	update() {
 	}
 

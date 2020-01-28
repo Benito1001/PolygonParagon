@@ -1,5 +1,4 @@
 import { toPixels } from "./scaleLogic.js"
-import { randomInt } from "./utils.js";
 import entitiesCollide from "./collisionLogic.js";
 import Vector from "./vector.js";
 import Rectangle from "./rectangle.js";
@@ -31,6 +30,7 @@ class Player {
 		this.dead = false;
 		this.boundingBox = new Rectangle(this.pos.x, this.pos.y, this.rad*2, this.rad*2);
 	}
+
 	draw(ctx) {
 		let canvasPos = this.pos.toPixels();
 		let canvasRad = this.rad*toPixels
@@ -41,10 +41,8 @@ class Player {
 		ctx.rotate(this.pos.x);
 		ctx.drawImage(this.texture, -canvasRad, -canvasRad, canvasRad*2, canvasRad*2);
 		ctx.restore();
-
-		//ctx.strokeRect(this.boundingBox.x*toPixels, this.boundingBox.y*toPixels, this.boundingBox.width*toPixels, this.boundingBox.height*toPixels)
-		//this.vel.draw(ctx, canvasPos.x+this.rad*toPixels, canvasPos.y+this.rad*toPixels, "blue");
 	}
+
 	update(dt, entities) {
 		if (this.fuel > 0) {
 			this.move(dt);
@@ -85,8 +83,6 @@ class Player {
 	move(dt) {
 		this.fuel -= 1*dt;
 		this.acc.x += this.moveRate;
-		if (this.keys.KeyD) {
-		}
 		if (this.keys.KeyA) {
 			this.acc.x -= this.moveRate*2;
 		}

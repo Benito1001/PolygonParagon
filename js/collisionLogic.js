@@ -78,7 +78,6 @@ function cornerIsOnLine(circleMid, circleRad, point1, point2) {
 			return {state: false};
 		}
 	}
-	return {state: false};
 }
 
 function lengthFromPointToLine(point, linePoint1, linePoint2) {

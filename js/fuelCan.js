@@ -1,5 +1,4 @@
 import { toPixels } from "./scaleLogic.js"
-import { randomInt } from "./utils.js";
 import Vector from "./vector.js";
 import Rectangle from "./rectangle.js";
 
@@ -17,6 +16,7 @@ export default class PlayerWheel {
 		this.dead = false;
 		this.boundingBox = new Rectangle(this.pos.x, this.pos.y, this.width, this.height);
 	}
+
 	draw(ctx) {
 		let canvasPos = this.pos.toPixels();
 		let canvasWidth = this.width*toPixels;
@@ -28,6 +28,7 @@ export default class PlayerWheel {
 		ctx.drawImage(this.texture, -canvasWidth/2, -canvasHeight/2, canvasWidth, canvasHeight);
 		ctx.restore();
 	}
+
 	update() {
 	}
 }

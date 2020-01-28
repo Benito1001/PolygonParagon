@@ -1,5 +1,4 @@
 import { toPixels } from "./scaleLogic.js";
-import { randomInt } from "./utils.js";
 
 export default class Vector {
 	constructor(x=0, y=0) {
